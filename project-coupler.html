@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microstrip Directional Couplers | Aarav Jayswal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #ffffff; --section-bg-gray: #f8f9fa; --text-main: #111827; --text-muted: #4b5563; --border-color: #e5e7eb; --heading-color: #0f172a; --accent-green: #16a34a; --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .nav-logo { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--heading-color); }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-links a { padding: 8px 16px; font-weight: 500; font-size: 0.95rem; border-radius: 6px; transition: all 0.2s ease; color: var(--text-muted); }
+        .nav-links a.active { background-color: var(--text-main); color: white; }
+        .nav-links a:hover:not(.active) { background-color: var(--section-bg-gray); color: var(--text-main); }
+        .back-nav { max-width: 1100px; margin: 40px auto 0; padding: 0 5%; width: 100%; }
+        .back-btn { font-weight: 600; color: var(--text-muted); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .back-btn:hover { color: var(--accent-green); }
+        .project-container { max-width: 900px; margin: 40px auto 80px; padding: 0 5%; width: 100%; }
+        .project-title { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; color: var(--heading-color); margin-bottom: 20px; line-height: 1.2; text-transform: capitalize; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .tech-tag { background: white; color: var(--text-main); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); }
+        .main-img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; margin-bottom: 40px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); background-color: var(--section-bg-gray); }
+        .project-content h3 { font-size: 1.5rem; color: var(--heading-color); margin: 30px 0 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
+        .project-content ul { padding-left: 20px; margin-bottom: 30px; color: var(--text-muted); font-size: 1.05rem; }
+        .project-content li { margin-bottom: 12px; }
+        .project-content p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; padding: 16px 20px 0; gap: 12px; }
+            .nav-logo { margin-bottom: 4px; }
+            .nav-links { width: 100vw; overflow-x: auto; padding: 0 20px 16px; margin-left: -20px; margin-right: -20px; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { white-space: nowrap; flex-shrink: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">Aarav Jayswal</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="resume.html">Resume</a>
+            <a href="coursework.html">Coursework</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="back-nav">
+        <a href="projects.html" class="back-btn">&#8592; Back to Projects</a>
+    </div>
+
+    <div class="project-container">
+        <h1 class="project-title">Microstrip Directional Couplers</h1>
+        
+        <div class="tech-tags">
+            <span class="tech-tag">Keysight ADS</span>
+            <span class="tech-tag">Linecalc</span>
+            <span class="tech-tag">VNA</span>
+            <span class="tech-tag">S-Parameters</span>
+        </div>
+
+        <img src="coupler-design.jpg" alt="Directional Coupler Circuit" class="main-img">
+
+        <div class="project-content">
+            <h3>Project Details</h3>
+            <ul>
+                <li>Synthesized multi-stage microstrip coupled lines using the ADS Linecalc utility on an $\epsilon_{r}=4.3$, $h=1.58$ mm substrate to design precise $-10$ dB and $-20$ dB directional couplers operating at $2.0$ GHz[cite: 27].</li>
+                <li>Simulated the high-frequency S-parameters ($S_{11}$, $S_{21}$, $S_{31}$, $S_{41}$) across a broad $0$ to $6$ GHz spectrum to mathematically evaluate input reflection, port isolation, coupling values, and transmission coefficients[cite: 28].</li>
+                <li>Modeled non-ideal physical layout discontinuities by integrating custom microstrip corners and $50~\Omega$ transmission lines directly into the coupler ports[cite: 28].</li>
+                <li>Calibrated and operated a physical Vector Network Analyzer (VNA) from $300$ kHz to $3$ GHz to experimentally characterize both a commercial Mini-Circuits coupler and a custom-fabricated microstrip coupler[cite: 29].</li>
+                <li>Measured and compared empirical mid-band reflection coefficients, isolated port leakage, and usable frequency bandwidths by selectively terminating isolated ports with matched $50~\Omega$ loads[cite: 29, 30].</li>
+            </ul>
+
+            <h3>Simulation & Hardware Verification</h3>
+            <p>Designing and characterizing these directional couplers highlighted the real-world deviations from ideal theoretical models. The ADS simulations accurately mapped how increasing the physical line spacing directly altered the even and odd mode impedances, effectively reducing the coupling factor[cite: 27]. Subsequent hardware verification using the VNA confirmed these theoretical behaviors, verifying the strict inverse relationship between direct transmission power and coupled power while maintaining tight port isolation under load[cite: 29, 30, 31].</p>
+        </div>
+    </div>
+
+</body>
+</html>
