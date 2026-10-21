@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Aarav Jayswal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* =========================================
-           1. ROOT VARIABLES & BASE SETUP
+           MASTER STYLE BLOCK
            ========================================= */
         :root { 
             --bg-color: #ffffff; 
@@ -23,12 +22,9 @@
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
 
-        /* =========================================
-           2. NAVIGATION BAR
-           ========================================= */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
         .nav-logo { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--heading-color); }
         .nav-links { display: flex; gap: 8px; }
@@ -36,134 +32,21 @@
         .nav-links a.active { background-color: var(--text-main); color: white; }
         .nav-links a:hover:not(.active) { background-color: var(--section-bg-gray); color: var(--text-main); }
 
-        /* =========================================
-           3. HERO & HEADERS
-           ========================================= */
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('banner.jpg'); background-size: cover; background-position: center; padding: 120px 5%; text-align: center; color: white; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: 1px; margin-bottom: 0; text-transform: uppercase; line-height: 1.1; }
-        .green-line { width: 100%; max-width: 500px; height: 4px; background-color: var(--accent-green); margin: 24px auto; border-radius: 2px; }
-        .hero h2 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 400; margin-bottom: 12px; color: #f8fafc; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.1rem); font-weight: 300; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
-        
-        .page-header { padding: 80px 5% 40px; text-align: center; }
-        .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--heading-color); margin-bottom: 16px; text-transform: uppercase; }
-
-        /* =========================================
-           4. LAYOUT CONTAINERS & TYPOGRAPHY
-           ========================================= */
         .section-container { max-width: 1100px; margin: 60px auto; padding: 0 5%; width: 100%; }
-        .gray-bg { background-color: var(--section-bg-gray); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding-top: 80px; padding-bottom: 80px; }
-        .horizontal-title, .section-title { text-align: center; font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: var(--heading-color); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        .horizontal-title { text-align: center; font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: var(--heading-color); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 1px; }
         
-        .content-flex { display: flex; align-items: stretch; gap: 40px; }
-        .section-img { width: 100%; max-width: 400px; height: auto; object-fit: cover; border-radius: 12px; box-shadow: var(--card-shadow); flex-shrink: 0; }
-        .section-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .section-text p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
-
-        /* =========================================
-           5. BUTTONS, TAGS, & LISTS
-           ========================================= */
-        .btn-dark { background-color: var(--text-main); color: white; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: background-color 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; cursor: pointer; }
-        .btn-dark:hover { background-color: var(--text-muted); }
-        .btn-outline { border: 2px solid var(--border-color); color: var(--text-main); padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.2s; }
-        .btn-outline:hover { border-color: var(--text-main); }
-        
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
-        .tech-tag { background: white; color: var(--text-main); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); }
-        
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .skill-category h3 { font-size: 1.1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; margin-bottom: 16px; color: var(--heading-color); }
-        .skill-category ul { list-style: none; }
-        .skill-category li { margin-bottom: 10px; color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; }
-        .skill-category li::before { content: ""; display: inline-block; width: 6px; height: 6px; background-color: var(--accent-green); border-radius: 50%; margin-right: 12px; }
-
-        /* =========================================
-           6. CARDS & GRIDS (Projects, Experience, Courses)
-           ========================================= */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .project-card { background: white; border-radius: 16px; overflow: hidden; transition: all 0.3s ease; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column; }
         .project-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); border-color: #d1d5db; }
         .project-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background-color: var(--section-bg-gray); border-bottom: 1px solid var(--border-color); }
         .project-title { font-size: 1.15rem; font-weight: 600; padding: 24px 20px; color: var(--heading-color); line-height: 1.4; flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; }
 
-        .cards-wrapper { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
-        .xp-card { background-color: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; box-shadow: var(--card-shadow); transition: transform 0.2s; }
-        .xp-card:hover { transform: translateY(-2px); box-shadow: var(--card-shadow-hover); }
-        .xp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
-        .xp-header h3 { font-size: 1.25rem; font-weight: 700; color: var(--heading-color); }
-        .xp-date { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); background: var(--section-bg-gray); padding: 4px 12px; border-radius: 20px; }
-        .xp-role { font-size: 1.05rem; font-weight: 600; color: var(--accent-green); margin-bottom: 20px; }
-        .xp-card ul { padding-left: 20px; color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
-        .xp-card li { margin-bottom: 10px; }
-
-        .clean-list { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
-        .clean-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--border-color); gap: 20px; }
-        .clean-item:last-child { border-bottom: none; }
-        .clean-item-left h3 { font-size: 1.2rem; font-weight: 700; color: var(--heading-color); margin-bottom: 6px; }
-        .clean-item-left p { font-size: 1rem; color: var(--text-muted); }
-        .clean-item-right { text-align: right; min-width: 150px; }
-        .clean-item-right span { display: block; font-size: 0.95rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
-        .clean-item-right small { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* =========================================
-           7. PROJECT DETAIL PAGES & MISC
-           ========================================= */
-        .back-nav { max-width: 1100px; margin: 40px auto 0; padding: 0 5%; width: 100%; }
-        .back-btn { font-weight: 600; color: var(--text-muted); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
-        .back-btn:hover { color: var(--accent-green); }
-        .project-container { max-width: 900px; margin: 40px auto 80px; padding: 0 5%; width: 100%; }
-        .main-img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; margin-bottom: 40px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); }
-        .project-content h3 { font-size: 1.5rem; color: var(--heading-color); margin: 30px 0 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
-        .project-content ul { padding-left: 20px; margin-bottom: 30px; color: var(--text-muted); font-size: 1.05rem; }
-        .project-content li { margin-bottom: 12px; }
-        .photo-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
-        .gallery-media { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-color); background-color: #000; box-shadow: var(--card-shadow); }
-
-        .resume-document { font-family: 'Times New Roman', Times, serif; color: #000; font-size: 11pt; line-height: 1.4; border: 1px solid var(--border-color); padding: 50px; border-radius: 8px; box-shadow: var(--card-shadow); background: #fff; margin: 0 auto; max-width: 850px; overflow-x: auto; }
-        
-        .page-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 60px 0; padding: 0 5%; }
-        .page-icon-card { background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 24px; text-align: center; width: calc(33.333% - 16px); min-width: 250px; box-shadow: var(--card-shadow); transition: all 0.2s ease; }
-        .page-icon-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); border-color: #cbd5e1; }
-        .page-icon-card svg { width: 40px; height: 40px; margin-bottom: 16px; stroke: var(--text-main); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        
-        .contact-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 5%; text-align: center; }
-        .contact-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
-
-        /* =========================================
-           8. PROPER MOBILE RESPONSIVENESS
-           ========================================= */
         @media (max-width: 768px) {
-            /* Navbar: Stack logo and create a horizontally scrollable nav menu */
             .navbar { flex-direction: column; padding: 16px 20px 0; gap: 12px; }
             .nav-logo { margin-bottom: 4px; }
-            .nav-links { 
-                width: 100vw; 
-                overflow-x: auto; 
-                padding: 0 20px 16px; 
-                margin-left: -20px; 
-                margin-right: -20px; 
-                justify-content: flex-start; 
-                -webkit-overflow-scrolling: touch; 
-            }
-            .nav-links::-webkit-scrollbar { display: none; } /* Hides scrollbar on mobile */
+            .nav-links { width: 100vw; overflow-x: auto; padding: 0 20px 16px; margin-left: -20px; margin-right: -20px; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+            .nav-links::-webkit-scrollbar { display: none; }
             .nav-links a { white-space: nowrap; flex-shrink: 0; }
-
-            /* Fix Side-by-Side Flex Layouts */
-            .content-flex { flex-direction: column; gap: 32px; align-items: center; text-align: center; }
-            .section-text { text-align: left; }
-            .section-img { max-width: 100%; aspect-ratio: 4/3; }
-            .side-images { width: 100%; flex-direction: row; flex-wrap: wrap; }
-            .course-img { flex: 1; min-width: 140px; height: 180px; }
-            
-            /* Fix Lists and Cards for narrow screens */
-            .clean-item { flex-direction: column; gap: 12px; padding: 20px 0; }
-            .clean-item-right { text-align: left; }
-            .xp-card { padding: 24px 20px; }
-            .resume-document { padding: 24px 16px; font-size: 10pt; }
-            
-            .page-icon-card { width: 100%; }
-            .contact-links { flex-direction: column; width: 100%; max-width: 300px; }
-            .btn-dark, .btn-outline { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -184,32 +67,52 @@
         <h2 class="horizontal-title">Projects</h2>
         
         <div class="projects-grid">
-            
             <a href="project-pid.html" class="project-card">
-                <img src="Pid1.png" alt="PID Controller" class="project-img">
+                <img src="buck-converter.jpg" alt="PID Controller" class="project-img">
                 <div class="project-title">PID Temperature Controller & Custom Power Supply</div>
-            </a>
-            <a href="project-psse.html" class="project-card">
-                <img src="psse.png" alt="IEEE 9-Bus Power System" class="project-img">
-                <div class="project-title">IEEE 9-Bus Power System Analysis</div>
-             </a>
-            
-            <a href="project_temp.html" class="project-card">
-                <img src="temp1.png" alt="Temperature Monitor Circuit" class="project-img">
-                <div class="project-title">Temperature Monitoring System</div>
             </a>
 
             <a href="project-decade.html" class="project-card">
-                <img src="decade.png" alt="Decade Counter PCB" class="project-img">
+                <img src="decade-counter.jpg" alt="Decade Counter PCB" class="project-img">
                 <div class="project-title">Decade Counter Display</div>
             </a>
 
+            <a href="project-robot.html" class="project-card">
+                <img src="robot.jpg" alt="Line Following Robot" class="project-img">
+                <div class="project-title">Line Following Robot</div>
+            </a>
 
+            <a href="project-bms.html" class="project-card">
+                <img src="bms-board.jpg" alt="Battery Management System" class="project-img">
+                <div class="project-title">4S 40Amp Battery Management System</div>
+            </a>
 
+            <a href="project-temp.html" class="project-card">
+                <img src="temp-monitor.jpg" alt="Temperature Monitor Circuit" class="project-img">
+                <div class="project-title">Temperature Monitoring System</div>
+            </a>
 
+            <a href="project-psse.html" class="project-card">
+                <img src="psse-oneline.jpg" alt="IEEE 9-Bus Power System" class="project-img">
+                <div class="project-title">IEEE 9-Bus Power System Analysis</div>
+            </a>
 
+            <a href="project-ads.html" class="project-card">
+                <img src="ads-workspace.jpg" alt="Keysight ADS Simulation Environment" class="project-img">
+                <div class="project-title">Keysight ADS RF Circuit Design</div>
+            </a>
 
+            <!-- New SystemVue Receiver Project -->
+            <a href="project-receiver.html" class="project-card">
+                <img src="receiver-budget.jpg" alt="Front-End Receiver Schematic" class="project-img">
+                <div class="project-title">Front-End Receiver Budget Analysis</div>
+            </a>
 
+            <!-- New Directional Couplers Project -->
+            <a href="project-coupler.html" class="project-card">
+                <img src="coupler-design.jpg" alt="Directional Coupler Circuit" class="project-img">
+                <div class="project-title">Microstrip Directional Couplers</div>
+            </a>
         </div>
     </div>
 
