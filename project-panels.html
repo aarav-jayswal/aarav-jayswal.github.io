@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEC Residential Panel Wiring | Aarav Jayswal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #ffffff; --section-bg-gray: #f8f9fa; --text-main: #111827; --text-muted: #4b5563; --border-color: #e5e7eb; --heading-color: #0f172a; --accent-green: #16a34a; --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .nav-logo { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--heading-color); }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-links a { padding: 8px 16px; font-weight: 500; font-size: 0.95rem; border-radius: 6px; transition: all 0.2s ease; color: var(--text-muted); }
+        .nav-links a.active { background-color: var(--text-main); color: white; }
+        .nav-links a:hover:not(.active) { background-color: var(--section-bg-gray); color: var(--text-main); }
+        .back-nav { max-width: 1100px; margin: 40px auto 0; padding: 0 5%; width: 100%; }
+        .back-btn { font-weight: 600; color: var(--text-muted); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .back-btn:hover { color: var(--accent-green); }
+        .project-container { max-width: 900px; margin: 40px auto 80px; padding: 0 5%; width: 100%; }
+        .project-title { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; color: var(--heading-color); margin-bottom: 20px; line-height: 1.2; text-transform: capitalize; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .tech-tag { background: white; color: var(--text-main); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); }
+        .main-img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; margin-bottom: 40px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); background-color: var(--section-bg-gray); }
+        .project-content h3 { font-size: 1.5rem; color: var(--heading-color); margin: 30px 0 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
+        .project-content ul { padding-left: 20px; margin-bottom: 30px; color: var(--text-muted); font-size: 1.05rem; }
+        .project-content li { margin-bottom: 12px; }
+        .project-content p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; padding: 16px 20px 0; gap: 12px; }
+            .nav-logo { margin-bottom: 4px; }
+            .nav-links { width: 100vw; overflow-x: auto; padding: 0 20px 16px; margin-left: -20px; margin-right: -20px; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { white-space: nowrap; flex-shrink: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">Aarav Jayswal</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="resume.html">Resume</a>
+            <a href="coursework.html">Coursework</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="back-nav">
+        <a href="projects.html" class="back-btn">&#8592; Back to Projects</a>
+    </div>
+
+    <div class="project-container">
+        <h1 class="project-title">NEC Residential Panel & Branch Circuit Wiring</h1>
+        
+        <div class="tech-tags">
+            <span class="tech-tag">AutoCAD</span>
+            <span class="tech-tag">NEC Compliance</span>
+            <span class="tech-tag">Power Distribution</span>
+            <span class="tech-tag">Circuit Protection</span>
+        </div>
+
+        <img src="residential-wiring.jpg" alt="AutoCAD Residential Wiring Diagram" class="main-img">
+
+        <div class="project-content">
+            <h3>Project Details</h3>
+            <ul>
+                <li>Drafted a comprehensive residential electrical panel and kitchen branch circuit wiring diagram in AutoCAD, ensuring strict compliance with National Electrical Code (NEC) standards[cite: 83].</li>
+                <li>Routed hot conductors from a 25 kVA (13.2 kV to 240/120 V) service transformer through a digital smart meter and DPST service disconnect, enforcing NEC requirements for neutral conductor continuity without intermediate switching[cite: 83, 84].</li>
+                <li>Designed distinct 120 V and 240 V branch circuits with dedicated overcurrent protection in the main panel, supplying a 120 V GFCI receptacle, lighting fixtures, and a 4-conductor 240 V high-power appliance outlet[cite: 83, 84].</li>
+                <li>Implemented industry-standard wire color-coding logic (Hot: Red/Black, Neutral: Double Black/White, Ground: Green) and ensured all necessary wire splices were safely enclosed within approved junction boxes[cite: 83, 84].</li>
+                <li>Established a robust grounding infrastructure by connecting all electrical equipment, end-use receptacles, and lighting components directly to a central ground pit via the main panel[cite: 83, 84].</li>
+            </ul>
+
+            <h3>Power Distribution & Electrical Safety</h3>
+            <p>This layout project bridged the gap between theoretical AC power distribution and practical building safety codes. By managing the exact wire routing from the utility step-down transformer to the individual branch circuits, the design demonstrated how dual-voltage systems safely operate within a single household. Emphasizing proper conduit runs, correct breaker sizing, isolated neutral pathways, and comprehensive equipment grounding reinforced the core safety principles necessary for modern residential power engineering[cite: 83].</p>
+        </div>
+    </div>
+
+</body>
+</html>
