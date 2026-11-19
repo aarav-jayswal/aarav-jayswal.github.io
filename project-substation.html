@@ -106,12 +106,11 @@
             <span class="tech-tag">SEL-421L &amp; SEL-487</span>
             <span class="tech-tag">ANSI/IEEE C37.2</span>
             <span class="tech-tag">CT Saturation (MATLAB)</span>
-            <span class="tech-tag">OPAL-RT / RT-LAB</span>
             <span class="tech-tag">MATLAB/Simulink</span>
-            <span class="tech-tag">Tektronix DPO 2014B</span>
+            <span class="tech-tag">Oscilloscope</span>
         </div>
 
-        <img src="substation-old.jpg" alt="230/115/69 kV Substation One-Line Diagram with SEL-421L and SEL-487 Protection" class="main-img">
+        <img src="Project2-Model.png" alt="230/115/69 kV Substation One-Line Diagram with SEL-421L and SEL-487 Protection" class="main-img">
 
         <div class="project-content">
             <h3>Project Overview &amp; Technical Highlights</h3>
@@ -120,7 +119,6 @@
                 <li><strong>Load Flow &amp; Instrument Transformer Sizing:</strong> Calculated three-phase full-load currents across all branches (<strong>778.2 A</strong> total incoming at North Bus; <strong>213.4 A / 711.2 A</strong> on the 85 MVA unit; <strong>564.8 A / 1129.6 A</strong> on the 225 MVA unit) and specified phase-to-neutral Potential Transformers (<strong>PT-01: 133 kV/115 V</strong>, <strong>PT-02: 40 kV/115 V</strong>, <strong>PT-03: 67 kV/115 V</strong>) alongside <strong>3000/5 Multi-Ratio (MR) C800</strong> bushing CTs.</li>
                 <li><strong>CT Core Saturation Analysis (MATLAB):</strong> Evaluated magnetic core saturation under worst-case bolted short-circuit conditions using <strong>X/R = 6.67</strong>, <strong>1.07 &Omega;</strong> relay burden, and <strong>150 ft of 10-AWG lead wire</strong> (1.2 &Omega;/1000 ft) to enforce the ANSI accuracy limit (<i>V</i><sub>ANSI</sub> &ge; <i>I</i><sub>fault,sec</sub> &times; (1 + <i>X/R</i>) &times; <i>Z</i><sub>Burden</sub>). Upsized low-side CT taps on breakers <strong>6K101 (800:5 &rarr; 2000:5)</strong> and <strong>6K102 (1200:5 &rarr; 3000:5)</strong> to prevent saturation at <strong>5,926.90 A</strong> and <strong>6,275.55 A</strong> fault currents.</li>
                 <li><strong>Microprocessor Relay Protection Scheme:</strong> Integrated <strong>SEL-487</strong> transformer differential protection (<strong>87T</strong>) across inner bushing CTs and <strong>SEL-421L</strong> line/backup relays implementing <strong>50/51/67</strong> (overcurrent/directional), <strong>21</strong> (distance), <strong>27/59</strong> (under/over-voltage), <strong>25</strong> (synchronism check), and <strong>86BF</strong> (breaker failure lockout) tripping schemes across breakers <strong>8K11, 6K101, 8K12, and 6K102</strong>.</li>
-                <li><strong>OPAL-RT Real-Time HIL Fault Simulation:</strong> Modeled a <strong>735 kV / 230 kV / 13.8 kV</strong> transmission network (<strong>6&times;350 MVA</strong> synchronous generator, two <strong>180 km</strong> distributed RLC lines, <strong>50 &mu;s</strong> discrete step) in MATLAB/Simulink and RT-LAB, capturing real-time <strong>SLG, LL, LLG, and 3-Phase</strong> fault waveforms on dual <strong>Tektronix DPO 2014B</strong> digital phosphor oscilloscopes.</li>
             </ul>
 
             <h3>Governing Equations &amp; Protection Calculations</h3>
@@ -271,44 +269,44 @@
                 </table>
             </div>
 
-            <h3>Real-Time Fault Analysis (OPAL-RT &amp; Tektronix DPO 2014B Oscilloscope)</h3>
-            <p>Hardware-in-the-loop (HIL) fault testing on the 735 kV transmission model captured three-phase voltage collapse and fault current surges across all four fault classifications:</p>
+            <h3>Real-Time Fault Analysis (Oscilloscope)</h3>
+            <p>Fault testing on the 735 kV transmission model captured three-phase voltage collapse and fault current surges across all four fault classifications:</p>
             <div class="scope-grid">
                 <div class="scope-card">
-                    <img src="fault-slg.jpg" alt="Single Line to Ground Fault Oscilloscope Capture">
+                    <img src="A_G.jpeg" alt="Single Line to Ground Fault Oscilloscope Capture">
                     <div class="scope-caption">
                         <strong>Fig. 3(a) — Single Line-to-Ground (SLG) Fault</strong>
                         Asymmetrical voltage depression on the faulted phase with corresponding ground-fault current spike.
                     </div>
                 </div>
                 <div class="scope-card">
-                    <img src="fault-ll.jpg" alt="Line to Line Fault Oscilloscope Capture">
+                    <img src="AB_CO.jpeg" alt="Line to Line Fault Oscilloscope Capture">
                     <div class="scope-caption">
-                        <strong>Fig. 3(b) — Line-to-Line (LL) Fault</strong>
+                        <strong>Fig.Line-to-Line (LL) Fault</strong>
                         Phase-to-phase voltage convergence and elevated opposite-polarity fault currents across the two faulted phases.
                     </div>
                 </div>
                 <div class="scope-card">
-                    <img src="fault-llg.jpg" alt="Line to Line to Ground Fault Oscilloscope Capture">
+                    <img src="AB_G.jpeg" alt="Line to Line to Ground Fault Oscilloscope Capture">
                     <div class="scope-caption">
-                        <strong>Fig. 3(c) — Double Line-to-Ground (LLG) Fault</strong>
+                        <strong>Fig. Double Line-to-Ground (LLG) Fault</strong>
                         Severe voltage drop across two faulted phases with high zero-sequence ground current contribution.
                     </div>
                 </div>
                 <div class="scope-card">
-                    <img src="fault-3phase.jpg" alt="Three-Phase Symmetrical Fault Oscilloscope Capture">
+                    <img src="ABC_G.jpeg" alt="Three-Phase Symmetrical Fault Oscilloscope Capture">
                     <div class="scope-caption">
-                        <strong>Fig. 3(d) — Symmetrical 3-Phase Fault</strong>
+                        <strong>Fig.Symmetrical 3-Phase Fault</strong>
                         Complete balanced three-phase voltage collapse with maximum symmetrical short-circuit current surge.
                     </div>
                 </div>
             </div>
 
             <h3>Engineering Takeaways</h3>
-            <p>Combining AutoCAD substation drafting, MATLAB CT saturation modeling, and OPAL-RT real-time fault simulation bridged the gap between steady-state equipment sizing and dynamic grid protection. Upsizing the 69 kV and 115 kV CT taps from 800:5 and 1200:5 to 2000:5 and 3000:5 ensured that the SEL-487 differential and SEL-421L backup relays receive accurate secondary waveforms during 6+ kA faults, preventing false restraint or delayed tripping on high-value power transformers.</p>
+            <p>Combining AutoCAD substation drafting, MATLAB CT saturation modeling, and fault simulation bridged the gap between steady-state equipment sizing and dynamic grid protection. Upsizing the 69 kV and 115 kV CT taps from 800:5 and 1200:5 to 2000:5 and 3000:5 ensured that the SEL-487 differential and SEL-421L backup relays receive accurate secondary waveforms during 6+ kA faults, preventing false restraint or delayed tripping on high-value power transformers.</p>
         </div>
     </div>
 
 </body>
 </html>
-```[cite: 85, 86, 88, 89, 90, 91, 92]
+
