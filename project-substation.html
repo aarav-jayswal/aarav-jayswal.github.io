@@ -6,34 +6,78 @@
     <title>Electrical Substation Design & Protection | Aarav Jayswal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-color: #ffffff; --section-bg-gray: #f8f9fa; --text-main: #111827; --text-muted: #4b5563; --border-color: #e5e7eb; --heading-color: #0f172a; --accent-green: #16a34a; --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        :root { 
+            --bg-color: #ffffff; 
+            --section-bg-gray: #f8f9fa; 
+            --text-main: #111827; 
+            --text-muted: #4b5563; 
+            --border-color: #e5e7eb; 
+            --heading-color: #0f172a; 
+            --accent-green: #16a34a; 
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); 
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
+
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
         .nav-logo { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--heading-color); }
         .nav-links { display: flex; gap: 8px; }
         .nav-links a { padding: 8px 16px; font-weight: 500; font-size: 0.95rem; border-radius: 6px; transition: all 0.2s ease; color: var(--text-muted); }
         .nav-links a.active { background-color: var(--text-main); color: white; }
         .nav-links a:hover:not(.active) { background-color: var(--section-bg-gray); color: var(--text-main); }
+
         .back-nav { max-width: 1100px; margin: 40px auto 0; padding: 0 5%; width: 100%; }
         .back-btn { font-weight: 600; color: var(--text-muted); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
         .back-btn:hover { color: var(--accent-green); }
-        .project-container { max-width: 900px; margin: 40px auto 80px; padding: 0 5%; width: 100%; }
-        .project-title { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; color: var(--heading-color); margin-bottom: 20px; line-height: 1.2; text-transform: capitalize; }
+
+        .project-container { max-width: 960px; margin: 40px auto 80px; padding: 0 5%; width: 100%; }
+        .project-title { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; color: var(--heading-color); margin-bottom: 20px; line-height: 1.2; }
+        
         .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
         .tech-tag { background: white; color: var(--text-main); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); }
-        .main-img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; margin-bottom: 40px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); background-color: var(--section-bg-gray); }
-        .project-content h3 { font-size: 1.5rem; color: var(--heading-color); margin: 30px 0 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
-        .project-content ul { padding-left: 20px; margin-bottom: 30px; color: var(--text-muted); font-size: 1.05rem; }
+
+        .main-img { width: 100%; max-height: 600px; object-fit: contain; border-radius: 16px; margin-bottom: 40px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); background-color: #ffffff; padding: 10px; }
+
+        .project-content h3 { font-size: 1.45rem; color: var(--heading-color); margin: 36px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
+        .project-content ul { padding-left: 20px; margin-bottom: 28px; color: var(--text-muted); font-size: 1.02rem; }
         .project-content li { margin-bottom: 12px; }
-        .project-content p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+        .project-content p { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+        .project-content strong { color: var(--text-main); }
+
+        /* Formula Cards */
+        .formula-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 20px 0 32px; }
+        .formula-card { background: var(--section-bg-gray); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; box-shadow: var(--card-shadow); display: flex; flex-direction: column; justify-content: space-between; }
+        .formula-label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--heading-color); margin-bottom: 10px; }
+        .formula-math { font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 1.15rem; color: var(--text-main); background: #ffffff; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+        .frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 3px; font-size: 0.95rem; }
+        .frac .num { border-bottom: 1.5px solid var(--text-main); padding: 0 4px 2px; line-height: 1.2; }
+        .frac .den { padding: 2px 4px 0; line-height: 1.2; }
+        .formula-note { font-size: 0.86rem; color: var(--text-muted); line-height: 1.45; }
+
+        /* Technical Tables */
+        .table-wrapper { overflow-x: auto; margin: 20px 0 32px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); }
+        table { width: 100%; border-collapse: collapse; background: white; font-size: 0.94rem; text-align: left; }
+        th { background-color: var(--section-bg-gray); color: var(--heading-color); font-weight: 700; padding: 14px 16px; border-bottom: 2px solid var(--border-color); white-space: nowrap; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--border-color); color: var(--text-muted); }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: #fafafa; }
+        .highlight-val { font-weight: 700; color: var(--heading-color); }
+
+        /* Oscilloscope Fault Grid */
+        .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; margin: 24px 0 36px; }
+        .scope-card { background: white; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); }
+        .scope-card img { width: 100%; height: auto; display: block; background-color: var(--section-bg-gray); border-bottom: 1px solid var(--border-color); }
+        .scope-caption { padding: 14px 16px; font-size: 0.92rem; color: var(--text-muted); }
+        .scope-caption strong { color: var(--heading-color); display: block; margin-bottom: 4px; font-size: 0.98rem; }
+
         @media (max-width: 768px) {
             .navbar { flex-direction: column; padding: 16px 20px 0; gap: 12px; }
             .nav-logo { margin-bottom: 4px; }
             .nav-links { width: 100vw; overflow-x: auto; padding: 0 20px 16px; margin-left: -20px; margin-right: -20px; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
             .nav-links::-webkit-scrollbar { display: none; }
             .nav-links a { white-space: nowrap; flex-shrink: 0; }
+            .scope-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -55,32 +99,216 @@
     </div>
 
     <div class="project-container">
-        <h1 class="project-title">Electrical Substation Design & Protection Relay Modeling</h1>
+        <h1 class="project-title">230/115/69 kV Substation Design, Protective Relaying &amp; Real-Time Fault Analysis</h1>
         
         <div class="tech-tags">
-            <span class="tech-tag">AutoCAD</span>
-            <span class="tech-tag">MATLAB</span>
-            <span class="tech-tag">Protective Relaying</span>
-            <span class="tech-tag">Power Systems</span>
-            <span class="tech-tag">CT Saturation</span>
+            <span class="tech-tag">AutoCAD (OLD)</span>
+            <span class="tech-tag">SEL-421L &amp; SEL-487</span>
+            <span class="tech-tag">ANSI/IEEE C37.2</span>
+            <span class="tech-tag">CT Saturation (MATLAB)</span>
+            <span class="tech-tag">OPAL-RT / RT-LAB</span>
+            <span class="tech-tag">MATLAB/Simulink</span>
+            <span class="tech-tag">Tektronix DPO 2014B</span>
         </div>
 
-        <img src="substation-old.jpg" alt="Substation One-Line Diagram and Protective Relays" class="main-img">
+        <img src="substation-old.jpg" alt="230/115/69 kV Substation One-Line Diagram with SEL-421L and SEL-487 Protection" class="main-img">
 
         <div class="project-content">
-            <h3>Project Details</h3>
+            <h3>Project Overview &amp; Technical Highlights</h3>
             <ul>
-                <li>Designed a comprehensive three-bus (230 kV, 115 kV, 69 kV) electrical substation one-line diagram (OLD) in AutoCAD, integrating a 225 MVA auto-transformer and an 85 MVA wye-delta transformer.</li>
-                <li>Calculated three-phase full-load currents and analyzed potential fault conditions to accurately size and select multi-ratio Current Transformers (CTs) and Potential Transformers (PTs) for protective relaying.</li>
-                <li>Analyze magnetic core saturation during severe fault conditions, factoring in CT winding resistance, lead wire resistance, and relay burden to ensure secondary voltages remained within specified ANSI accuracy classes.</li>
-                <li>Implemented a complete protective relaying scheme using standard ANSI/IEEE C37.2 device numbers—including 87T differential, 50/51 overcurrent, and 21 distance relays—into the final AutoCAD layouts.</li>
-                <li>Simulated transmission line fault conditions (Single Line to Ground, Line to Line, 3-Phase) within MATLAB/Simulink to validate system response behaviors.</li>
+                <li><strong>Three-Bus Substation One-Line Diagram (AutoCAD DWG 100-12-1010):</strong> Engineered a complete <strong>230 kV North Bus</strong>, <strong>69 kV East Bus</strong> (distribution), and <strong>115 kV West Bus</strong> (transmission) substation incorporating a wave trap, an <strong>85 MVA 230/69 kV Wye-Delta transformer</strong> (12% impedance), and a <strong>225 MVA 230/115 kV auto-transformer</strong> (18% impedance).</li>
+                <li><strong>Load Flow &amp; Instrument Transformer Sizing:</strong> Calculated three-phase full-load currents across all branches (<strong>778.2 A</strong> total incoming at North Bus; <strong>213.4 A / 711.2 A</strong> on the 85 MVA unit; <strong>564.8 A / 1129.6 A</strong> on the 225 MVA unit) and specified phase-to-neutral Potential Transformers (<strong>PT-01: 133 kV/115 V</strong>, <strong>PT-02: 40 kV/115 V</strong>, <strong>PT-03: 67 kV/115 V</strong>) alongside <strong>3000/5 Multi-Ratio (MR) C800</strong> bushing CTs.</li>
+                <li><strong>CT Core Saturation Analysis (MATLAB):</strong> Evaluated magnetic core saturation under worst-case bolted short-circuit conditions using <strong>X/R = 6.67</strong>, <strong>1.07 &Omega;</strong> relay burden, and <strong>150 ft of 10-AWG lead wire</strong> (1.2 &Omega;/1000 ft) to enforce the ANSI accuracy limit (<i>V</i><sub>ANSI</sub> &ge; <i>I</i><sub>fault,sec</sub> &times; (1 + <i>X/R</i>) &times; <i>Z</i><sub>Burden</sub>). Upsized low-side CT taps on breakers <strong>6K101 (800:5 &rarr; 2000:5)</strong> and <strong>6K102 (1200:5 &rarr; 3000:5)</strong> to prevent saturation at <strong>5,926.90 A</strong> and <strong>6,275.55 A</strong> fault currents.</li>
+                <li><strong>Microprocessor Relay Protection Scheme:</strong> Integrated <strong>SEL-487</strong> transformer differential protection (<strong>87T</strong>) across inner bushing CTs and <strong>SEL-421L</strong> line/backup relays implementing <strong>50/51/67</strong> (overcurrent/directional), <strong>21</strong> (distance), <strong>27/59</strong> (under/over-voltage), <strong>25</strong> (synchronism check), and <strong>86BF</strong> (breaker failure lockout) tripping schemes across breakers <strong>8K11, 6K101, 8K12, and 6K102</strong>.</li>
+                <li><strong>OPAL-RT Real-Time HIL Fault Simulation:</strong> Modeled a <strong>735 kV / 230 kV / 13.8 kV</strong> transmission network (<strong>6&times;350 MVA</strong> synchronous generator, two <strong>180 km</strong> distributed RLC lines, <strong>50 &mu;s</strong> discrete step) in MATLAB/Simulink and RT-LAB, capturing real-time <strong>SLG, LL, LLG, and 3-Phase</strong> fault waveforms on dual <strong>Tektronix DPO 2014B</strong> digital phosphor oscilloscopes.</li>
             </ul>
 
-            <h3>System Protection & Substation Drafting</h3>
-            <p>This project provided a deep dive into utility-scale power protection and substation drafting. By combining fault and saturation analysis with AutoCAD drafting, I was able to bridge the gap between theoretical system calculations and practical physical layouts. Determining the precise points where CTs saturate under asymmetrical fault conditions ensured that the specified protective relays would operate reliably, safeguarding the high-value transformer assets from catastrophic failure.</p>
+            <h3>Governing Equations &amp; Protection Calculations</h3>
+            <p>The following analytical equations were implemented in MATLAB (<code>CT-Saturation.m</code>) to calculate full-load currents, prospective short-circuit fault levels, secondary loop burden, and ANSI core-saturation thresholds:</p>
+            
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <div class="formula-label">1. Three-Phase Full-Load Current</div>
+                    <div class="formula-math">
+                        <span><i>I</i><sub>rated</sub> =</span>
+                        <span class="frac"><span class="num"><i>S</i><sub>rated</sub></span><span class="den">&radic;3 &times; <i>V</i><sub>LL</sub></span></span>
+                    </div>
+                    <div class="formula-note">Determines steady-state primary and secondary currents for initial CT tap sizing.</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-label">2. Prospective Short-Circuit Power</div>
+                    <div class="formula-math">
+                        <span><i>S</i><sub>fault</sub> =</span>
+                        <span class="frac"><span class="num"><i>S</i><sub>rated</sub></span><span class="den">%<i>X</i></span></span>
+                    </div>
+                    <div class="formula-note">Approximates bolted fault power using transformer impedance (<i>X</i><sub>fmr</sub> = 12%, <i>X</i><sub>Auto</sub> = 18%).</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-label">3. CT Internal Winding Resistance</div>
+                    <div class="formula-math">
+                        <span><i>R</i><sub>CT</sub> = CT Burden &times;</span>
+                        <span class="frac"><span class="num">Desired CTR</span><span class="den">Max CT Ratio</span></span>
+                    </div>
+                    <div class="formula-note">Scales internal resistance for 3000:5 MR C800 CTs (8 &Omega; full-winding burden).</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-label">4. Total Secondary Burden Impedance</div>
+                    <div class="formula-math">
+                        <span><i>Z</i><sub>Burden</sub> = <i>R</i><sub>CT</sub> + <i>R</i><sub>lead</sub> + <i>R</i><sub>Relay</sub></span>
+                    </div>
+                    <div class="formula-note">Combines CT resistance, 150 ft 10-AWG round-trip lead wire (1.2 &Omega;/1000 ft), and 1.07 &Omega; relay burden.</div>
+                </div>
+
+                <div class="formula-card" style="grid-column: 1 / -1;">
+                    <div class="formula-label">5. ANSI CT Saturation Condition</div>
+                    <div class="formula-math">
+                        <span><i>V</i><sub>ANSI</sub> &ge; <i>I</i><sub>fault,sec</sub> &times; (1 +</span>
+                        <span class="frac"><span class="num"><i>X</i></span><span class="den"><i>R</i></span></span>
+                        <span>) &times; <i>Z</i><sub>Burden</sub></span>
+                    </div>
+                    <div class="formula-note">Ensures the required secondary voltage stays below the C800 accuracy-class rating (<i>V</i><sub>ANSI</sub> = 800 V) with line <i>X/R</i> = 6.67, preventing magnetic core saturation during asymmetrical faults.</div>
+                </div>
+            </div>
+
+            <h3>CT Burden &amp; Saturation Analysis Results (MATLAB)</h3>
+            <p>Using <code>CT-Saturation.m</code> with a 3000:5 MR C800 CT (8 &Omega; internal burden, 800 V ANSI accuracy-class voltage), the secondary fault voltage was verified for each breaker zone to guarantee distortion-free current reproduction during asymmetrical faults:</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Breaker Number</th>
+                            <th>Rated Current (A)</th>
+                            <th>Original CTR</th>
+                            <th>Fault Current (A)</th>
+                            <th>New CTR (Post-Saturation)</th>
+                            <th>CT Accuracy Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="highlight-val">8K11 (230 kV)</td>
+                            <td>213.37</td>
+                            <td>400:5</td>
+                            <td>1,778.07</td>
+                            <td class="highlight-val">400:5</td>
+                            <td>C800</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">6K101 (69 kV)</td>
+                            <td>711.23</td>
+                            <td>800:5</td>
+                            <td>5,926.90</td>
+                            <td class="highlight-val">2000:5</td>
+                            <td>C800</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">8K12 (230 kV)</td>
+                            <td>564.80</td>
+                            <td>600:5</td>
+                            <td>3,137.77</td>
+                            <td class="highlight-val">600:5</td>
+                            <td>C800</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">6K102 (115 kV)</td>
+                            <td>1,129.60</td>
+                            <td>1200:5</td>
+                            <td>6,275.55</td>
+                            <td class="highlight-val">3000:5</td>
+                            <td>C800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>ANSI/IEEE C37.2 Protective Relaying Device Schedule</h3>
+            <p>Standardized ANSI/IEEE C37.2 protection elements implemented within the SEL-421L and SEL-487 relay panels on the final one-line diagram:</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ANSI Device #</th>
+                            <th>Protective Function</th>
+                            <th>ANSI Device #</th>
+                            <th>Protective Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="highlight-val">21</td>
+                            <td>Distance Relay</td>
+                            <td class="highlight-val">52</td>
+                            <td>AC Circuit Breaker</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">25</td>
+                            <td>Synchronism Check Relay</td>
+                            <td class="highlight-val">59</td>
+                            <td>Over-Voltage Relay</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">27</td>
+                            <td>Under-Voltage Relay</td>
+                            <td class="highlight-val">67</td>
+                            <td>AC Directional Overcurrent Relay</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">50</td>
+                            <td>Instantaneous Overcurrent Relay</td>
+                            <td class="highlight-val">86 / 86BF</td>
+                            <td>Lockout / Breaker Failure Relay</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-val">51</td>
+                            <td>Inverse-Time Overcurrent Relay</td>
+                            <td class="highlight-val">87 / 87T</td>
+                            <td>Transformer Differential Relay</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Real-Time Fault Analysis (OPAL-RT &amp; Tektronix DPO 2014B Oscilloscope)</h3>
+            <p>Hardware-in-the-loop (HIL) fault testing on the 735 kV transmission model captured three-phase voltage collapse and fault current surges across all four fault classifications:</p>
+            <div class="scope-grid">
+                <div class="scope-card">
+                    <img src="fault-slg.jpg" alt="Single Line to Ground Fault Oscilloscope Capture">
+                    <div class="scope-caption">
+                        <strong>Fig. 3(a) — Single Line-to-Ground (SLG) Fault</strong>
+                        Asymmetrical voltage depression on the faulted phase with corresponding ground-fault current spike.
+                    </div>
+                </div>
+                <div class="scope-card">
+                    <img src="fault-ll.jpg" alt="Line to Line Fault Oscilloscope Capture">
+                    <div class="scope-caption">
+                        <strong>Fig. 3(b) — Line-to-Line (LL) Fault</strong>
+                        Phase-to-phase voltage convergence and elevated opposite-polarity fault currents across the two faulted phases.
+                    </div>
+                </div>
+                <div class="scope-card">
+                    <img src="fault-llg.jpg" alt="Line to Line to Ground Fault Oscilloscope Capture">
+                    <div class="scope-caption">
+                        <strong>Fig. 3(c) — Double Line-to-Ground (LLG) Fault</strong>
+                        Severe voltage drop across two faulted phases with high zero-sequence ground current contribution.
+                    </div>
+                </div>
+                <div class="scope-card">
+                    <img src="fault-3phase.jpg" alt="Three-Phase Symmetrical Fault Oscilloscope Capture">
+                    <div class="scope-caption">
+                        <strong>Fig. 3(d) — Symmetrical 3-Phase Fault</strong>
+                        Complete balanced three-phase voltage collapse with maximum symmetrical short-circuit current surge.
+                    </div>
+                </div>
+            </div>
+
+            <h3>Engineering Takeaways</h3>
+            <p>Combining AutoCAD substation drafting, MATLAB CT saturation modeling, and OPAL-RT real-time fault simulation bridged the gap between steady-state equipment sizing and dynamic grid protection. Upsizing the 69 kV and 115 kV CT taps from 800:5 and 1200:5 to 2000:5 and 3000:5 ensured that the SEL-487 differential and SEL-421L backup relays receive accurate secondary waveforms during 6+ kA faults, preventing false restraint or delayed tripping on high-value power transformers.</p>
         </div>
     </div>
 
 </body>
 </html>
+```[cite: 85, 86, 88, 89, 90, 91, 92]
